@@ -14,7 +14,7 @@ int main()
 {
 
     // Declare the integer
-    string usrLetter;
+    string usrLetter, resultString;
     int count = 0;
     // Display the information on console.
     cout << "Program to prompt the user to enter a telephone number expressed in letters" << endl;
@@ -55,7 +55,7 @@ int main()
                 case 'b':
                 case 'C':
                 case 'c':
-                    cout << "2";
+                    resultString += "2";
                     count++;
                     break;
                 case 'D':
@@ -64,7 +64,7 @@ int main()
                 case 'e':
                 case 'F':
                 case 'f':
-                    cout << "3";
+                    resultString += "3";
                     count++;
                     break;
 
@@ -74,7 +74,7 @@ int main()
                 case 'h':
                 case 'I':
                 case 'i':
-                    cout << "4";
+                    resultString +=  "4";
                     count++;
                     break;
 
@@ -84,7 +84,7 @@ int main()
                 case 'k':
                 case 'L':
                 case 'l':
-                    cout << "5";
+                    resultString += "5";
                     count++;
                     break;
                 case 'M':
@@ -93,7 +93,7 @@ int main()
                 case 'n':
                 case 'O':
                 case 'o':
-                    cout << "6";
+                    resultString +=  "6";
                     count++;
                     break;
 
@@ -105,7 +105,7 @@ int main()
                 case 'r':
                 case 'S':
                 case 's':
-                    cout << "7";
+                    resultString += "7";
                     count++;
                     break;
                 case 'T':
@@ -114,7 +114,7 @@ int main()
                 case 'u':
                 case 'V':
                 case 'v':
-                    cout << "8";
+                    resultString += "8";
                     count++;
                     break;
 
@@ -126,7 +126,7 @@ int main()
                 case 'y':
                 case 'Z':
                 case 'z':
-                    cout << "9";
+                    resultString += "9";
                     count++;
                     break;
 
@@ -143,15 +143,16 @@ int main()
 
             if (count == 3 && notSpace) {
             // Display hypen on console.
-                cout << "-";
+                resultString += "-";
             // Check whether the value of count is 7 or not.
             }
             if (count == 7) {
                 break;
             }
 
-        }
 
+        }
+        cout << resultString;
         cout << endl;
         // Update the value of count.
         count = 0;
