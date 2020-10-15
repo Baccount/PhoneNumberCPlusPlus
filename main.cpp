@@ -13,8 +13,6 @@ int main()
     string usrLetter, outputString;
     int count = 0;
     bool keepRunning = true;
-    cout << "Program to prompt the user to enter a telephone number expressed in letters" << endl;
-    cout << "To stop the program enter #." << endl;
 
     // Main while loop start
 
