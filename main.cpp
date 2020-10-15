@@ -1,61 +1,55 @@
 
-// Declare necessary header files.
-
 #include <iostream>
 
 #include <string>
 
 using namespace std;
 
-// start the main function
 
 int main()
 
 {
 
-    // Declare the integer
-    string usrLetter, resultString;
+    string usrLetter, outputString;
     int count = 0;
-    // Display the information on console.
+    bool keepRunning = true;
     cout << "Program to prompt the user to enter a telephone number expressed in letters" << endl;
     cout << "To stop the program enter #." << endl;
 
-    // start the while loop
-    // check whether string contains # or not.
+    // Main while loop start
 
-    while (usrLetter != "#")
+    while (keepRunning)
 
     {
-        // Prompt the user to enter the phone number expressed in letters
-        cout << "Enter a telephone number expressed in letters: ";
-        // input letters.
-
+        // Prompt user to enter letters
+        cout << "Enter your telephone number : ";
         getline(cin, usrLetter);
         cout << endl;
+        cout << "Your telephone number is: " << usrLetter << endl;
 
-        // Display the statement on console.
-        cout << "The telephone you entered is: " << usrLetter << endl;
-        // Display the telephone number.
-        cout << "The corresponding telephone digit is: ";
 
-        // start the while loop.
+
+
+
+
+
+        // Start for loop that converts letters to numbers
 
         for (int i = 0; i < usrLetter.length(); i++){
 
-            // Declare variables.
-            bool notSpace = true;
-            // Start the switch case
+            // Check if space or not bool
+            bool space = false;
 
 
-
-            switch (usrLetter[i]) {
+            // Start switch case converter
+            switch (usrLetter.at(i)) {
                 case 'A':
                 case 'a':
                 case 'B':
                 case 'b':
                 case 'C':
                 case 'c':
-                    resultString += "2";
+                    outputString += "2";
                     count++;
                     break;
                 case 'D':
@@ -64,7 +58,7 @@ int main()
                 case 'e':
                 case 'F':
                 case 'f':
-                    resultString += "3";
+                    outputString += "3";
                     count++;
                     break;
 
@@ -74,7 +68,7 @@ int main()
                 case 'h':
                 case 'I':
                 case 'i':
-                    resultString +=  "4";
+                    outputString +=  "4";
                     count++;
                     break;
 
@@ -84,7 +78,7 @@ int main()
                 case 'k':
                 case 'L':
                 case 'l':
-                    resultString += "5";
+                    outputString += "5";
                     count++;
                     break;
                 case 'M':
@@ -93,7 +87,7 @@ int main()
                 case 'n':
                 case 'O':
                 case 'o':
-                    resultString +=  "6";
+                    outputString +=  "6";
                     count++;
                     break;
 
@@ -105,7 +99,7 @@ int main()
                 case 'r':
                 case 'S':
                 case 's':
-                    resultString += "7";
+                    outputString += "7";
                     count++;
                     break;
                 case 'T':
@@ -114,7 +108,7 @@ int main()
                 case 'u':
                 case 'V':
                 case 'v':
-                    resultString += "8";
+                    outputString += "8";
                     count++;
                     break;
 
@@ -126,12 +120,12 @@ int main()
                 case 'y':
                 case 'Z':
                 case 'z':
-                    resultString += "9";
+                    outputString += "9";
                     count++;
                     break;
 
                 case ' ':
-                    notSpace = false;
+                    space = true;
                     break;
 
                 default:
@@ -139,12 +133,10 @@ int main()
 
             }
 
-            //display after the third digit
-
-            if (count == 3 && notSpace) {
-            // Display hypen on console.
-                resultString += "-";
-            // Check whether the value of count is 7 or not.
+            // add - after 3 digits
+            if (count == 3 && !space) {
+                outputString += "-";
+                space = false;
             }
             if (count == 7) {
                 break;
@@ -152,10 +144,14 @@ int main()
 
 
         }
-        cout << resultString;
+        // Print output converted phone number
+        cout << "The corresponding telephone digit is: ";
+        cout << outputString;
         cout << endl;
-        // Update the value of count.
+        // blank out outputString
+        outputString = "";
         count = 0;
+
     }
     return 0;
 
