@@ -127,7 +127,9 @@ int main()
                     break;
 
                 default:
-                    cout << "Invalid input.";
+                    cout << "Invalid" << endl;
+                    i = 50;
+                    break;
 
             }
 
