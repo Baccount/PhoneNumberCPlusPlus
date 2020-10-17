@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 #include <string>
@@ -13,6 +12,7 @@ int main()
     string usrLetter, outputString;
     int count = 0;
     bool keepRunning = true;
+    bool isValid = true;
 
     // Main while loop start
 
@@ -20,16 +20,19 @@ int main()
 
     {
         // Prompt user to enter letters
-        cout << "Enter your telephone number : ";
+        cout << "Enter a 7 character string, or type # to quit : ";
         getline(cin, usrLetter);
         cout << endl;
-        cout << "Your telephone number is: " << usrLetter << endl;
+        cout << "You entered: " << usrLetter << endl;
 
+    //Quits the program//
+    if (usrLetter == "#") {
+        cout << "Exiting program." << endl;
+        break;
+    }
 
-
-
-
-
+        //Checks length of string, prints an error if it's too long.
+    if (usrLetter.length() <= 7) {
 
         // Start for loop that converts letters to numbers
 
@@ -127,7 +130,8 @@ int main()
                     break;
 
                 default:
-                    cout << "Invalid" << endl;
+                    cout << "Invalid, no special characters allowed." << endl;
+                    isValid = false;
                     i = 50;
                     break;
 
@@ -141,17 +145,24 @@ int main()
             if (count == 7) {
                 break;
             }
-
-
         }
-        // Print output converted phone number
+    
+        }
+            else {
+            cout << "Invalid, string is too long to fit in a phone number." << endl;
+                    isValid = false;
+                }
+
+        // Print output converted phone number (If the number is valid)
+        if (isValid) {
         cout << "The corresponding telephone digit is: ";
         cout << outputString;
-        cout << endl;
-        // blank out outputString
+        cout << endl; 
+        }
+        // blank out outputString and set valid to true again
         outputString = "";
         count = 0;
-
+        isValid = true;
     }
     return 0;
 
